@@ -7,11 +7,10 @@ const products = []
 router.get('/add-product', (req, res) => {
   res.render('add-product', {
     pageTitle: 'Add Product',
-    isProductRoute: true,
-    formCSS: true,
-    productCSS: true,
-    activeAddProduct: true,
-    // path: '/admin/add-product'
+    path: '/admin/add-product'
+    // formCSS: true,
+    // productCSS: true,
+    // activeAddProduct: true,
   })
 })
 
