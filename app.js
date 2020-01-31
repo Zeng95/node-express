@@ -1,23 +1,25 @@
-const bodyParser = require('body-parser')
+// Global variable
+global.__basedir = __dirname
+
 const path = require('path')
+
 const express = require('express')
 
-const adminData = require('./routes/admin')
+const adminRouter = require('./routes/admin')
 const shopRouter = require('./routes/shop')
 
+const errorController = require('./controllers/error')
+// A lot of logic is in this "app" constant
 const app = express()
-const port = 8000
 
 app.set('view engine', 'ejs')
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/admin', adminData.routes)
+app.use('/admin', adminRouter)
 app.use(shopRouter)
 
-app.use('/', function (req, res) {
-  res.status(404).render('404', { pageTitle: 'Page Not Found' })
-})
+app.use('/', errorController.get404)
 
-app.listen(port)
+app.listen(8000)
