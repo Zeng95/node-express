@@ -3,9 +3,11 @@ const path = require('path')
 const root = require('../utils/root')
 
 class Product {
-  constructor(title, price = '$19.99') {
+  constructor(title,  description, imageUrl, price) {
     this.title = title
     this.price = price
+    this.imageUrl = imageUrl
+    this.description = description
   }
 
   store() {
@@ -31,7 +33,7 @@ class Product {
 
   static fetchAll(callback) {
     const p = path.join(root, 'data/products.json')
- 
+
     fs.readFile(p, 'utf8', (error, data) => {
       if (error) {
         callback([])

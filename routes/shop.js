@@ -1,17 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-const homePageController = require('../controllers/home')
-const productsController = require('../controllers/products')
-const cartController = require('../controllers/cart')
+const shopController = require('../controllers/shop')
 
 // define the home page route
-router.get('/', homePageController.getHomePage)
+router.get('/', shopController.getHomepage)
 
 // define the cart route
-router.get('/cart', cartController.getCart)
+router.get('/cart', shopController.getCart)
 
 // define the product-list route
-router.get('/products', productsController.getProducts)
+router.get('/products', shopController.getProducts)
+
+// define the checkout route
+router.get('/checkout', shopController.getCheckout)
 
 module.exports = router
