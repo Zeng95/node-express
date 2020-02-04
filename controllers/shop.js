@@ -29,3 +29,9 @@ exports.getCheckout = (req, res, next) => {
     pageTitle: 'Your Checkout'
   })
 }
+
+exports.getOrders = (req, res, next) => {
+  res.render('shop/orders', {
+    pageTitle: 'Your Orders'
+  })
+}

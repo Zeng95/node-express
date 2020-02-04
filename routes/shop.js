@@ -9,10 +9,13 @@ router.get('/', shopController.getHomepage)
 // define the cart route
 router.get('/cart', shopController.getCart)
 
-// define the product-list route
+// define the products route
 router.get('/products', shopController.getProducts)
 
 // define the checkout route
 router.get('/checkout', shopController.getCheckout)
+
+// define the checkout route
+router.get('/orders', shopController.getOrders)
 
 module.exports = router
