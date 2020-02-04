@@ -2,7 +2,7 @@ const Product = require('../models/product')
 
 exports.getHomepage = (req, res, next) => {
   Product.fetchAll((products) => {
-    res.render('shop', {
+    res.render('shop/index', {
       pageTitle: 'Shop',
       products
     })

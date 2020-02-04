@@ -1,8 +1,17 @@
 const Product = require('../models/product')
 
 exports.getProducts = (req, res, next) => {
-  res.render('admin/products', {
-    pageTitle: 'Admin Products',
+  Product.fetchAll((products) => {
+    res.render('admin/products', {
+      pageTitle: 'Admin Products',
+      products
+    })
+  })
+}
+
+exports.getEditProduct = (req, res, next) => {
+  res.render('admin/edit-product', {
+    pageTitle: 'Edit Product',
   })
 }
 

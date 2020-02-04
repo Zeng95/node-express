@@ -6,6 +6,9 @@ const adminController = require('../controllers/admin')
 // /admin/products => GET
 router.get('/products', adminController.getProducts)
 
+// /admin/edit-product => GET
+router.get('/edit-product', adminController.getEditProduct)
+
 // /admin/add-product => GET
 router.get('/add-product', adminController.getAddProduct)
 
